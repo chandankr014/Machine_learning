@@ -7,6 +7,9 @@ from src.exception import CustomException
 from sklearn.model_selection import train_test_split
 from dataclasses import dataclass
 
+from src.component.data_transformation import DataTransformation
+from src.component.data_transformation import DataTransformationConfig
+
 @dataclass
 class DataIngestionConfig:
     train_data_path : str=os.path.join('artifacts',"train.csv")
@@ -20,7 +23,8 @@ class DataIngestion:
     def initiate_data_ingestion(self):
         logging.info('Entered into data ingestion component')
         try:
-            df = pd.read_csv("end to end ML/notebook/stud.csv")
+            # df = pd.read_csv("end to end ML/notebook/stud.csv")
+            df = pd.read_csv("C:/Users/chand/OneDrive/Documents/AIML/end to end ML/notebook/stud.csv")
             logging.info("Successflly fetched dataset")
             
             os.makedirs(os.path.dirname(self.ingestion_config.train_data_path), exist_ok=True)
@@ -45,4 +49,8 @@ class DataIngestion:
 #main function
 if __name__=="__main__":
     obj = DataIngestion()
-    obj.initiate_data_ingestion()
+    train_data_path, test_data_path = obj.initiate_data_ingestion()
+
+    data_transformation  = DataTransformation()
+    train_arr, test_arr = data_transformation.initiate_data_transformer(train_data_path, test_data_path)
+

@@ -50,6 +50,8 @@ To run the project locally, follow these steps:
 
 To use the project, follow these steps:
 
+0. Always run the programs from the root folder i.e. end to end ML/
+
 1. Ensure that you have the necessary dataset available. If you have your own dataset, place it in the `notebook/` directory. Alternatively, you can modify the code to load the dataset from a different location.
 
 2. Explore the provided Jupyter notebooks in the `notebooks/` directory. These notebooks provide a step-by-step guide on data preprocessing, feature engineering, model development, and evaluation.
