@@ -21,8 +21,9 @@ class CustomException(Exception):
 # main function
 if __name__ == "__main__":
     try:
-        a = 1/0
+        # a = 1/0
+        f = open('myfile.txt')
     except Exception as e:
-        logging.info("Divide by zero")
+        logging.info("file not found")
         raise CustomException(e, sys)
 

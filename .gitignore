@@ -1,0 +1,28 @@
+*.log
+.egg-info
+MANIFEST
+
+__pycache__
+
+*/.ipynb_checkpoints/*
+profile_default/
+ipython_config.py
+
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+
+#environments and artifacts
+.env
+.venv
+.artifacts
+ENV
+venv/
+
+# sagemath parsed files
+*.sage.py
+
