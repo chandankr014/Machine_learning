@@ -86,7 +86,7 @@ class DataTransformation():
             ip_features_tst = tst.drop(columns=[target_column_name], axis=1)
             target_feature_tst = tst[target_column_name]
 
-            print(ip_features_trn.shape, ip_features_tst.shape)
+            # print(ip_features_trn.shape, ip_features_tst.shape)
 
             logging.info(
                 f"Applying preprocessing object on training dataframe and testing dataframe"
