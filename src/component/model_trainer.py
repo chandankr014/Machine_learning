@@ -46,8 +46,6 @@ class ModelTrainer:
 
             models = {
                 "Linear Regression":LinearRegression(),
-                "Lasso":Lasso(),
-                "Ridge":Ridge(),
                 "KN Regressor":KNeighborsRegressor(),
                 "Decision Tree":DecisionTreeRegressor(),
                 "Ramdom Forest":RandomForestRegressor(),
@@ -55,8 +53,48 @@ class ModelTrainer:
                 "CatBoost Regressor":CatBoostRegressor(verbose=False),
                 "AdaBoost Regressor":AdaBoostRegressor()
             }
-            model_report:dict = evaluate_model(xtrn=x_train, ytrn=y_train, xtst=x_test, ytst=y_test, models=models)
 
+            # hyperparameter tuning
+            params = {
+                "Linear Regression":{
+                    
+                },
+                "Gradient Boosting":{
+                    'n_estimators':[16,32,64,128,256],
+                    'learning_rate':[0.01,0.05,0.1],
+                    'subsample':[0.6, 0.7, 0.8, 0.9]
+                },
+                "KN Regressor":{
+                    'n_neighbors':[5,7,9,11]
+                },
+                "Decision Tree":{
+                    'criterion':['squared_error', 'friedman_mse', 'absolute_error', 'poisson'],
+                    'max_features':['sqrt', 'log2']
+
+                },
+                "Ramdom Forest":{
+                    'n_estimators':[16,32,64,128,256]   
+
+                },
+                "XGBoost Regressor":{
+                    'learning_rate':[0.01, 0.05,0.1,0.001],
+                    'n_estimators':[16,32,64,128,256]
+                },
+                "CatBoost Regressor":{
+                    'depth':[6,8,10],
+                    'learning_rate':[0.01,0.05,0.1],
+                    'iterations':[30,50,100]
+                },
+                "AdaBoost Regressor":{
+                    'learning_rate':[0.001, 0.01, 0.1, 0.5],
+                    'loss':['linear', 'square', 'exponential'],
+                    'n_estimators':[16,32,64,128,256]
+                }
+            }
+
+            # creating models
+            model_report, best_parameters = evaluate_model(xtrn=x_train, ytrn=y_train, xtst=x_test, ytst=y_test, models=models, params=params)
+            
             # to get best model score from report
             all_models = sorted(model_report.values())
             best_model_score = max(all_models)
@@ -73,7 +111,9 @@ class ModelTrainer:
                 logging.info("All models estimates its accuracy under 70%")
                 raise CustomException("No best model found")
 
-            logging.info("Successfully found the best model")
+            logging.info("Successfully found the best model - ")
+            # logging.info("Successfully found the best model - ",best_model) 
+            # when i keep it like this, this gets printed in the terminal instead of storing into logs
 
             save_object(
                 file_path=ModelTrainerConfig.model_train_path,
@@ -83,7 +123,7 @@ class ModelTrainer:
             # predicted model
             predicted = best_model.predict(x_test)
             r2 = r2_score(y_true=y_test, y_pred=predicted)
-            return r2
+            return r2, best_model, best_parameters
 
         except Exception as e:
             raise CustomException(e,sys)

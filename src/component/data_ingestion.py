@@ -58,5 +58,7 @@ if __name__=="__main__":
     train_arr, test_arr = data_transformation.initiate_data_transformer(train_data_path, test_data_path)
 
     model_trainer = ModelTrainer()
-    res = model_trainer.initiate_model_trainer(train_arr, test_arr)
+    res, m, m_params = model_trainer.initiate_model_trainer(train_arr, test_arr)
     print(res)
+    print("Best Model: ",m)
+    print("Parameters: ",m_params)
