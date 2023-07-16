@@ -1,16 +1,10 @@
-""" 
-this program is for performing tasks like:
-feature engineering
-data cleaning
-data transforming/scaling
-data encoding
-"""
-
 import os
 import sys
 from dataclasses import dataclass
+
 import numpy as np
 import pandas as pd
+
 from sklearn.compose import ColumnTransformer
 from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
@@ -18,8 +12,8 @@ from sklearn.preprocessing import OneHotEncoder, StandardScaler
 
 from src.exception import CustomException
 from src.logger import logging
-
 from src.utils import save_object
+
 
 @dataclass
 class DataTransformationConfig:
@@ -37,14 +31,14 @@ class DataTransformation():
             num_pipeline = Pipeline(
                 steps=[
                     ('imputer', SimpleImputer(strategy='median')),
-                    ('scalar', StandardScaler(with_mean=False))
+                    ('scaler', StandardScaler(with_mean=False))
                 ]
             )
             cat_pipeline = Pipeline(
                 steps=[
                     ('imputer', SimpleImputer(strategy='most_frequent')),
-                    ('encoder', OneHotEncoder()),
-                    ('scalar', StandardScaler(with_mean=False))
+                    ('encoder', OneHotEncoder(handle_unknown='ignore')),
+                    ('scaler', StandardScaler(with_mean=False))
                 ]
             )
             # in num_pipeline imputing -> scaling 
@@ -86,7 +80,7 @@ class DataTransformation():
             ip_features_tst = tst.drop(columns=[target_column_name], axis=1)
             target_feature_tst = tst[target_column_name]
 
-            # print(ip_features_trn.shape, ip_features_tst.shape)
+            print(ip_features_trn.shape, ip_features_tst.shape)
 
             logging.info(
                 f"Applying preprocessing object on training dataframe and testing dataframe"
@@ -109,11 +103,11 @@ class DataTransformation():
                 obj = preprocessor_obj
             )
 
-            return  (
+            return (
                 train_arr,
                 test_arr,
+                self.data_transformation_config.preprocessor_obj_file_path
             )
-                # self.data_transformation_config.preprocessor_obj_file_path
 
         except Exception as e:
             raise CustomException(e,sys)

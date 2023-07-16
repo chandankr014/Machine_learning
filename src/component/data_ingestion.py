@@ -55,10 +55,9 @@ if __name__=="__main__":
     train_data_path, test_data_path = obj.initiate_data_ingestion()
 
     data_transformation  = DataTransformation()
-    train_arr, test_arr = data_transformation.initiate_data_transformer(train_data_path, test_data_path)
+    train_arr, test_arr, _ = data_transformation.initiate_data_transformer(train_data_path, test_data_path)
 
     model_trainer = ModelTrainer()
-    res, m, m_params = model_trainer.initiate_model_trainer(train_arr, test_arr)
-    print(res)
+    res, m = model_trainer.initiate_model_trainer(train_arr, test_arr)
+    print("Accuracy  : ",res)
     print("Best Model: ",m)
-    print("Parameters: ",m_params)
