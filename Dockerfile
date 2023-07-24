@@ -6,6 +6,6 @@ RUN pip install --no-cache-dir -r Requirements.txt
 
 COPY . .
 
-EXPOSE 5500
+EXPOSE $PORT
 
-CMD gunicorn --workers=2 --bind 0.0.0.0:5500 'application:app'
+CMD gunicorn --workers=2 --bind 0.0.0.0:$PORT 'application:app'
