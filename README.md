@@ -78,6 +78,41 @@ If you wish to contribute to this project, please follow these guidelines:
 
 6. Submit a pull request with a clear description of your changes and why they should be merged.
 
+### CICD using Github actions with AWS
+## End to End MAchine Learning Project
+
+1. Docker Build checked
+2. Github Workflow
+3. Iam User In AWS
+
+## Docker Setup In EC2 commands to be Executed
+
+#optinal
+
+sudo apt-get update -y
+
+sudo apt-get upgrade
+
+#required
+
+curl -fsSL https://get.docker.com -o get-docker.sh
+
+sudo sh get-docker.sh
+
+sudo usermod -aG docker ubuntu
+
+newgrp docker
+
+## Configure EC2 as self-hosted runner:
+
+## Setup github secrets:
+1.
+2.
+3.
+4.
+5.
+
+
 ## License
 
 The project is licensed under the [MIT License](LICENSE). Feel free to use, modify, and distribute the code for both commercial and non-commercial purposes.
