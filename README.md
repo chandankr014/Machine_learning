@@ -106,11 +106,11 @@ newgrp docker
 ## Configure EC2 as self-hosted runner:
 
 ## Setup github secrets:
-1.
-2.
-3.
-4.
-5.
+1. AWS_ACCESS_KEY_ID
+2. AWS_SECRET_ACCESS_KEY
+3. AWS_REGION
+4. AWS_ECR_LOGIN_URI
+5. ECR_REPOSITORY_NAME
 
 
 ## License
