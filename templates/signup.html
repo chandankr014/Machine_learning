@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Signup</title>
+    <style>
+        .form-field {
+            width: 30%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .submit-button {
+            background-color: #ff6d05;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 12px 20px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        .submit-button:hover {
+            background-color: #fd2003;
+            transform: scale(1.1); /* Apply scaling effect on hover */
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h2>Sign Up</h2>
+        <form action="/signup" method="post">
+            <input class="form-field" type="email" name="email" placeholder="Enter Email"><br><br>
+            <input class="form-field" type="text" name="new_username" placeholder="Enter Username"><br><br>
+            <input class="form-field" type="password" name="new_password" placeholder="Enter Password"><br><br>
+            <input class="form-field" type="password" name="new_confirm_password" placeholder="Confirm Password"><br><br>
+            <input class="submit-button" type="submit" value="user_signup">
+        </form>
+    </div>
+    <br><br>
+    <div>
+        <a href="http://localhost:5000/" class="submit-button">Go Back to HomePage</a>
+    </div>
+    <br><br>
+    <div class="copy-box">
+        <button class="copy-button" id="copyButton">{{ tkn }}</button>
+    </div>
+</body>
+</html>

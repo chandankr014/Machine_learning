@@ -6,7 +6,7 @@ HYPHEN_E_DOT = "-e ."
 def get_requirements(file_path:str)->List[str]:
     # this function will return the list of requirements
     req = []
-    with open('requirements.txt') as file_obj:
+    with open(file_path) as file_obj:
         req = file_obj.readlines()
         req = [r.replace("\n", "") for r in req]
 
@@ -22,5 +22,5 @@ setup(
     author_email='chandankr014@gmail.com',
     packages=find_packages(),
     # install_requires=['pandas', 'numpy', 'seaborn']
-    install_requires = get_requirements('requirements.txt')
+    install_requires = get_requirements(file_path='requirements.txt')
 )

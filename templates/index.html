@@ -11,7 +11,7 @@
     }
 
     h1 {
-      color: #333;
+      color: #ff7433;
       font-size: 30px;
       margin-bottom: 20px;
     }
@@ -23,9 +23,9 @@
     }
 
     .button {
-      background-color: #4CAF50;
+      background-color: #ffd48f;
       border: none;
-      color: white;
+      color: #ff7433; /* Bright red color */
       padding: 10px 20px;
       text-align: center;
       text-decoration: none;
@@ -33,6 +33,10 @@
       font-size: 16px;
       cursor: pointer;
       border-radius: 4px;
+    }
+    .button:hover {
+        color: #ff5233;
+        transform: scale(1.1); /* Apply scaling effect on hover */
     }
   </style>
 </head>
@@ -52,14 +56,17 @@
   </ul>
   
   <h2>
-    <a href="/predictdata" class="button">Prediction Page</a>
+    <a href="/get_credentials" class="button">Admin Panel</a>
   </h2>
-  <h3>
-    <a href="/about" class="button">Learn More</a>
-  </h3>
+
+  <h2>
+    <a href="/login" class="button">Login Page</a>
+  </h2>
   
-  <script>
-    // Additional JavaScript code can be added here
-  </script>
+  <h2>
+    <a href="/about" class="button">Learn More</a>
+  </h2>
+  
+
 </body>
 </html>
