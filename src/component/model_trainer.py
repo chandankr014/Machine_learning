@@ -11,8 +11,6 @@ from sklearn.linear_model import LinearRegression, Ridge, Lasso
 from sklearn.model_selection import RandomizedSearchCV
 from sklearn.model_selection import train_test_split
 
-from catboost import CatBoostRegressor
-from xgboost import XGBRegressor
 import warnings
 warnings.filterwarnings("ignore")
 
@@ -45,8 +43,6 @@ class ModelTrainer:
                 "KN Regressor":KNeighborsRegressor(),
                 "Decision Tree":DecisionTreeRegressor(),
                 "Ramdom Forest":RandomForestRegressor(),
-                "XGBoost Regressor":XGBRegressor(),
-                "CatBoost Regressor":CatBoostRegressor(verbose=False),
                 "AdaBoost Regressor":AdaBoostRegressor()
             }
 
@@ -69,15 +65,6 @@ class ModelTrainer:
                 "Ramdom Forest":{
                     'n_estimators':[16,32,64,128,256]   
 
-                },
-                "XGBoost Regressor":{
-                    'learning_rate':[0.01, 0.05,0.1,0.001],
-                    'n_estimators':[16,32,64,128,256]
-                },
-                "CatBoost Regressor":{
-                    'depth':[6,8,10],
-                    'learning_rate':[0.01,0.05,0.1],
-                    # 'iterations':[30,50,100]
                 },
                 "AdaBoost Regressor":{
                     'learning_rate':[0.001, 0.01, 0.1, 0.5],

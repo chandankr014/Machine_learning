@@ -4,8 +4,6 @@ import datetime
 from functools import wraps
 import json
 
-from jwt.exceptions import ExpiredSignatureError, DecodeError
-
 from src.pipeline.predict_pipeline import CustomData
 from src.pipeline.predict_pipeline import PredictionPipeline
 
@@ -152,4 +150,4 @@ def predict_datapoint():
 
 # main function here
 if __name__=="__main__":
-    app.run()
+    app.run(debug=True)

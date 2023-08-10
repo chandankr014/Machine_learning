@@ -27,7 +27,7 @@ class DataIngestion:
         logging.info('Entered into data ingestion component')
         try:
             # df = pd.read_csv("end to end ML/notebook/stud.csv")
-            df = pd.read_csv("C:/Users/chand/OneDrive/Documents/AIML/end to end ML/notebook/stud.csv")
+            df = pd.read_csv("notebook/stud.csv")
             logging.info("Successflly fetched dataset")
             
             os.makedirs(os.path.dirname(self.ingestion_config.train_data_path), exist_ok=True)

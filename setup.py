@@ -21,6 +21,5 @@ setup(
     author='Chandan',
     author_email='chandankr014@gmail.com',
     packages=find_packages(),
-    # install_requires=['pandas', 'numpy', 'seaborn']
     install_requires = get_requirements(file_path='requirements.txt')
 )
