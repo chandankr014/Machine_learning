@@ -152,4 +152,4 @@ def predict_datapoint():
 
 # main function here
 if __name__=="__main__":
-    app.run(debug=True)
+    app.run()
