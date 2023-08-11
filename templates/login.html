@@ -61,6 +61,7 @@
     </div>
     <div>
         <form id="myForm" method="post">
+            <input type="text" id="ipadd" name="ipadd" class="input-field" placeholder="IP"> <br>
             <input type="text" id="port" name="port" class="input-field" placeholder="PORT"> <br>
             <input type="text" id="web_token" name="web_token" class="input-field" placeholder="WEB-TOKEN"> <br>
             <input type="submit" class="submit-button">
@@ -80,8 +81,9 @@
 
         function redirectToSpecificLink() {
             const web_token = document.getElementById("web_token").value;
+            const ipadd = document.getElementById("ipadd").value;
             const port = document.getElementById("port").value;
-            const specificLink = "http://localhost:"+port+"/auth?token="+web_token;
+            const specificLink = "http://"+ipadd+":"+port+"/auth?token="+web_token;
             window.location.href = specificLink; // Redirect to the specific link
         }
     </script>
