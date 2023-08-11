@@ -7,6 +7,12 @@ import json
 from src.pipeline.predict_pipeline import CustomData
 from src.pipeline.predict_pipeline import PredictionPipeline
 
+import warnings
+# Supress UserWarnings
+warnings.filterwarnings("ignore", category=UserWarning)
+# Restore warning behavior
+# warnings.filterwarnings("default", category=UserWarning)
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "3d2a877fc3074ec59014b8ad8b912143"
 
