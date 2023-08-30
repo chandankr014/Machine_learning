@@ -35,12 +35,39 @@
       border-radius: 4px;
     }
     .button:hover {
-        color: #ff5233;
-        transform: scale(1.1); /* Apply scaling effect on hover */
+      color: #ff5233;
+      transform: scale(1.1); /* Apply scaling effect on hover */
     }
+    .btn-signup:hover {
+      color: #ff5233;
+      transform: scale(1.1); /* Apply scaling effect on hover */
+    }
+    .btn-signup {
+    position: absolute; /* or "fixed" depending on your needs */
+    top: 4%;
+    right: 4%;
+    background-color: #ffd48f;
+      border: none;
+      color: #ff7433; /* Bright red color */
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 4px;
+  }
   </style>
 </head>
 <body>
+
+  <header>
+    <nav class="right-nav">
+        <a href="/signup" class="btn-signup">Sign Up</a>
+    </nav>
+  </header>
+
+
   <h1>Welcome to the Awesome Flask App!</h1>
   <p>This is a simple Flask app for model prediction</p>
   <p>In this model we predict a student performance based on following features:</p>
@@ -56,7 +83,7 @@
   </ul>
   
   <h2>
-    <a href="/get_credentials" class="button">Admin Panel</a>
+    <a href="/dashboard" class="button">API Panel</a>
   </h2>
 
   <h2>

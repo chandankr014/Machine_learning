@@ -18,6 +18,7 @@ ipython_config.py
 
 #environments and artifacts
 .env
+.flaskenv
 .venv
 .artifacts
 ENV

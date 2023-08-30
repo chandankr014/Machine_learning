@@ -49,44 +49,47 @@
 </head>
 <body>
     <div>
-        <form action="/login" method="post" class="">
+        <form accept="{{ url_for('main.login') }}" action="/login" method="post" class="">
             <input type="username" name="username" placeholder="Enter Username" class="form-field"> <br><br>
             <input type="password" name="password" placeholder="Enter Password" class="form-field"> <br><br>
             <input type="submit" value="Login" class="submit-button">
         </form>
     </div>
-    <div>
-        <h2>Login to get your token <br>
-        and verify your json-web-token here:</h2>
-    </div>
-    <div>
-        <form id="myForm" method="post">
-            <input type="text" id="ipadd" name="ipadd" class="input-field" placeholder="IP"> <br>
-            <input type="text" id="port" name="port" class="input-field" placeholder="PORT"> <br>
-            <input type="text" id="web_token" name="web_token" class="input-field" placeholder="WEB-TOKEN"> <br>
-            <input type="submit" class="submit-button">
-        </form>
-    </div>
     <br><br>
-    <div>
-        <a href="http://localhost:5000/" class="submit-button">Go Back to HomePage</a>
-    </div>
 
     <!-- // Add event listener to the form's submit event -->
-    <script>
+    <!-- <script>
         document.getElementById("myForm").addEventListener("submit", function(event) {
-            event.preventDefault(); // Prevent default form submission
+            // event.preventDefault(); // Prevent default form submission
             redirectToSpecificLink();
         });
-
+    
         function redirectToSpecificLink() {
             const web_token = document.getElementById("web_token").value;
             const ipadd = document.getElementById("ipadd").value;
             const port = document.getElementById("port").value;
-            const specificLink = "http://"+ipadd+":"+port+"/auth?token="+web_token;
-            window.location.href = specificLink; // Redirect to the specific link
+    
+            // Construct the URL with query parameters
+            const specificLink = `http://${ipadd}:${port}/protected/auth`;
+    
+            // Create headers with the Authorization token
+            const headers = new Headers();
+            headers.append('Authorization', `Bearer ${web_token}`);
+    
+            // Fetch the specific link with the headers
+            fetch(specificLink, {
+                method: 'GET',  // Change this to the appropriate HTTP method
+                headers: headers,   
+                mode: 'cors', 
+            })
+            .then(response => {
+                window.location.href = specificLink;
+            })
+            .catch(error => {
+                console.error('Fetch error:', error);
+            });
         }
-    </script>
+    </script> -->
 
 </body>
 </html>
