@@ -2,12 +2,15 @@
 <html>
 <head>
   <title>Awesome Flask App</title>
+  <!-- Add Bootstrap CSS link -->
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 20px;
       text-align: left;
+      background-color: #f4f4f4;
     }
 
     h1 {
@@ -16,11 +19,41 @@
       margin-bottom: 20px;
     }
 
-    p {
-      color: #666;
-      font-size: 16px;
-      margin-bottom: 20px;
-    }
+    
+
+    /* Add this CSS to your existing stylesheet or create a new one */
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #ff7433;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+p {
+    color: #333;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+ul {
+    list-style-type: disc;
+    color: #333;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    padding-left: 20px;
+}
+
 
     .button {
       background-color: #ffd48f;
@@ -33,20 +66,19 @@
       font-size: 16px;
       cursor: pointer;
       border-radius: 4px;
+      transition: color 0.3s, transform 0.3s; /* Add smooth transitions */
     }
+
     .button:hover {
       color: #ff5233;
       transform: scale(1.1); /* Apply scaling effect on hover */
     }
-    .btn-signup:hover {
-      color: #ff5233;
-      transform: scale(1.1); /* Apply scaling effect on hover */
-    }
+
     .btn-signup {
-    position: absolute; /* or "fixed" depending on your needs */
-    top: 4%;
-    right: 4%;
-    background-color: #ffd48f;
+      position: absolute;
+      top: 4%;
+      right: 4%;
+      background-color: #ffd48f;
       border: none;
       color: #ff7433; /* Bright red color */
       padding: 10px 20px;
@@ -56,6 +88,21 @@
       font-size: 16px;
       cursor: pointer;
       border-radius: 4px;
+      transition: color 0.3s, transform 0.3s; /* Add smooth transitions */
+    }
+
+    .btn-signup:hover {
+      color: #ff5233;
+      transform: scale(1.1); /* Apply scaling effect on hover */
+    }
+    .button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    padding: auto;
+  }
+  .button-container a {
+    margin: 0px 15px;
   }
   </style>
 </head>
@@ -63,37 +110,40 @@
 
   <header>
     <nav class="right-nav">
-        <a href="/signup" class="btn-signup">Sign Up</a>
+        <a href="/signup" class="btn btn-signup">Sign Up</a>
     </nav>
   </header>
 
+  <div class="container text-center">
+    <h1>Welcome to the Awesome Flask App!</h1>
+    <p>Explore our Flask application designed for predictive modeling.</p>
+    <p>Our application leverages machine learning to forecast student performance based on a variety of key factors:</p>
+    <ul class="list-unstyled">
+        <li>Gender</li>
+        <li>Race/Ethnicity</li>
+        <li>Parental Level of Education</li>
+        <li>Lunch</li>
+        <li>Test Preparation Course</li>
+        <li>Math Score</li>
+        <li>Reading Score</li>
+        <li>Writing Score</li>
+    </ul>
+    <p>Gain insights into the intricate interplay of these factors and their impact on student achievement.</p>
+</div>
 
-  <h1>Welcome to the Awesome Flask App!</h1>
-  <p>This is a simple Flask app for model prediction</p>
-  <p>In this model we predict a student performance based on following features:</p>
-  <ul>
-    <li>Gender</li>
-    <li>Race/Ethnicity</li>
-    <li>Parental Level of Education</li>
-    <li>Lunch</li>
-    <li>Test Preparation Course</li>
-    <li>Math Score</li>
-    <li>Reading Score</li>
-    <li>Writing Score</li>
-  </ul>
-  
-  <h2>
-    <a href="/dashboard" class="button">API Panel</a>
-  </h2>
+  <div class="button-container">
+    <h2>
+      <a href="/dashboard" class="btn btn-primary button">API Panel</a>
+    </h2>
 
-  <h2>
-    <a href="/login" class="button">Login Page</a>
-  </h2>
+    <h2>
+      <a href="/login" class="btn btn-primary button">Login Page</a>
+    </h2>
   
-  <h2>
-    <a href="/about" class="button">Learn More</a>
-  </h2>
+    <h2>
+      <a href="/about" class="btn btn-primary button">Learn More</a>
+    </h2>
+  </div>
   
-
 </body>
 </html>
